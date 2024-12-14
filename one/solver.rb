@@ -29,4 +29,7 @@ class Day1Solver
     end
     .sum
   end
+
+  def total_similarity
+  end
 end
