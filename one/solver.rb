@@ -6,8 +6,6 @@ class Day1Solver
     @right_column = []
 
     File.foreach(filename) { |line| capture_row_data(line) }
-
-    sort_columns
   end
 
   def capture_row_data(row_string)
@@ -26,6 +24,13 @@ class Day1Solver
     @left_column.each_index.map do |index|
       (@left_column[index] - @right_column[index])
       .abs
+    end
+    .sum
+  end
+
+  def total_similarity
+    @left_column.each.map do |val|
+      @right_column.count(val) * val
     end
     .sum
   end

@@ -25,5 +25,9 @@ RSpec.describe Day1Solver do
     it "calculates the total difference between columns" do
       expect(subject.sort.total_difference).to eq 11
     end
+
+    it "calculates the total similarity between columns" do
+      expect(subject.total_similarity).to eq 31
+    end
   end
 end
