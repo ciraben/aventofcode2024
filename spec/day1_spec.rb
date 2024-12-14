@@ -13,4 +13,17 @@ RSpec.describe Day1Solver do
       expect(subject.total_difference).to eq 1
     end
   end
+
+  context "given a multi-line input file" do
+    let(:inputfile) { "one/mini-input" }
+
+    it "sorts each column's data" do
+      expect(subject.left_column).to eq  [1, 2, 3, 3, 3, 4]
+      expect(subject.right_column).to eq [3, 3, 3, 4, 5, 9]
+    end
+
+    it "calculates the total difference between columns" do
+      expect(subject.total_difference).to eq 11
+    end
+  end
 end

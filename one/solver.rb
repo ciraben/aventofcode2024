@@ -6,6 +6,8 @@ class Day1Solver
     @right_column = []
 
     File.foreach(filename) { |line| capture_row_data(line) }
+
+    sort_columns
   end
 
   def capture_row_data(row_string)
@@ -14,8 +16,16 @@ class Day1Solver
     @right_column.append right_val
   end
 
+  def sort_columns
+    @left_column.sort!
+    @right_column.sort!
+  end
+
   def total_difference
-    (@left_column[0] - @right_column[0])
-    .abs
+    @left_column.each_index.map do |index|
+      (@left_column[index] - @right_column[index])
+      .abs
+    end
+    .sum
   end
 end
