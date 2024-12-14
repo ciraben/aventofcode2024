@@ -16,9 +16,10 @@ class Day1Solver
     @right_column.append right_val
   end
 
-  def sort_columns
+  def sort
     @left_column.sort!
     @right_column.sort!
+    self
   end
 
   def total_difference
