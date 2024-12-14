@@ -2,10 +2,10 @@ require "debug"
 require_relative "../one/solver"
 
 RSpec.describe Day1Solver do
-  subject { Day1Solver.new(input) }
+  subject { Day1Solver.new(inputfile) }
 
   context "given an input line" do
-    let(:input) { "3   4" }
+    let(:inputfile) { "one/one-line-input" }
 
     it "converts it to integers stored in columns" do
       expect(subject.left_column).to eq [3]

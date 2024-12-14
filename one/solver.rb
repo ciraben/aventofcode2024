@@ -1,11 +1,11 @@
 class Day1Solver
   attr_reader :left_column, :right_column
 
-  def initialize(string)
+  def initialize(filename)
     @left_column = []
     @right_column = []
 
-    string.each_line { |line| capture_row_data(line) }
+    File.foreach(filename) { |line| capture_row_data(line) }
   end
 
   def capture_row_data(row_string)
