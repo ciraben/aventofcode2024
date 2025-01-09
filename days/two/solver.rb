@@ -11,7 +11,27 @@ class Day2Solver
     end
   end
 
+  def safety
+    @reports.count { |report| safe?(report) }
+  end
+
+  private
+
   def capture_row_data(line)
     reports << line.strip.split(" ").map(&:to_i)
+  end
+
+  def safe?(report)
+    adjacent_pairs = report.each_cons(2)
+
+    safely_increasing = adjacent_pairs.all? do |level, next_level|
+      level < next_level && level + 4 > next_level
+    end
+
+    safely_decreasing = adjacent_pairs.all? do |level, next_level|
+      level > next_level && level - 4 < next_level
+    end
+
+    safely_increasing || safely_decreasing
   end
 end

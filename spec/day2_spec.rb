@@ -27,4 +27,52 @@ RSpec.describe Day2Solver do
       ]
     end
   end
+
+  context "given a safely increasing report" do
+    let(:input) { "1 2 3 4 5" }
+
+    it "calculates a safety of one" do
+      expect(subject.safety).to eq 1
+    end
+  end
+
+  context "given an unsafely increasing report" do
+    let(:input) { "1 2 3 4 8" }
+
+    it "calculates a safety of zero" do
+      expect(subject.safety).to eq 0
+    end
+  end
+
+  context "given a safely decreasing report" do
+    let(:input) { "8 7 6 5 2" }
+
+    it "calculates a safety of one" do
+      expect(subject.safety).to eq 1
+    end
+  end
+
+  context "given an unsafely decreasing report" do
+    let(:input) { "8 7 6 5 1" }
+
+    it "calculates a safety of zero" do
+      expect(subject.safety).to eq 0
+    end
+  end
+
+  context "given an otherwise safe non-monotonic report" do
+    let(:input) { "4 6 3 2 3"}
+
+    it "calculates a safety of zero" do
+      expect(subject.safety).to eq 0
+    end
+  end
+
+  context "given the sample multi-report data" do
+    let(:filename) { "days/two/mini-input" }
+
+    it "calculates a safety of two" do
+      expect(subject.safety).to eq 2
+    end
+  end
 end
