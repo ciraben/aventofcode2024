@@ -35,3 +35,14 @@ class Day2Solver
     safely_increasing || safely_decreasing
   end
 end
+
+class Part2Solver < Day2Solver
+  private
+
+  def safe?(report)
+    x = report.combination(report.length - 1).map do |subreport|
+      method(:safe?).super_method.call(subreport)
+    end
+    .any?
+  end
+end
